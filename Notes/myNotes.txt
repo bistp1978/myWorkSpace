@@ -1,0 +1,7 @@
+minikube start --driver docker
+kubectl apply -f ..\myWorkSpace\K8s-Demo\mongo.yaml
+kubectl create deployment nginx-depl --image=nginx
+kubectl exec -it mongo-deployment-5585b4c49c-cj47q  -- bin/bash
+
+
+ [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("mongouser"))
