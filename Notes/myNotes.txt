@@ -5,3 +5,17 @@ kubectl exec -it mongo-deployment-5585b4c49c-cj47q  -- bin/bash
 minikube service webapp-service
 
  [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("mongouser"))
+ [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("mongopassword"))
+ [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("username"))
+ [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("password"))
+ minikube service mongoexpress-service
+ 
+
+ start ingress addon -  minikube addons enable ingress
+ minikube addons enable dashboard
+
+ git status
+ git add -A
+ git commit -a -m "K8s Demo"
+ git push -u origin
+ git status
