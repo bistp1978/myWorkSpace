@@ -5,13 +5,20 @@ metadata:
   namespace: kubernetes-dashboard
 spec:
   rules:
-  - host: dashboard.com
+  - host: mykube.com
     http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: "/dashboard"
         backend:
           service:
             name: kubernetes-dashboard
             port: 
               number: 80
+      - pathType: Prefix
+        path: "/mywebapp"
+        backend:
+          service:
+            name: webapp-service
+            port: 
+              number: 3000              

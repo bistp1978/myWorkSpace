@@ -1,0 +1,8 @@
+docker start
+docker info 
+docker pull redis
+docker run --name my-redis -d redis redis-server --save 60 1 --loglevel warning
+docker logs 3223894c3817 (container id)
+
+docker build -t my-nodeapp:1.0  . 
+docker run --name my-nodeapp  -p 3000:3000 -d my-nodeapp:1.0 
