@@ -55,7 +55,7 @@ Get-ChildItem -Path $SourceFolder -File | ForEach-Object {
 
     # Create folder path: YYYY\MM
     $year = $date.Year.ToString()
-    $month = $date.ToString("MM")
+    $month = $date.ToString("MM-MMMM")
 
     $targetFolder = Join-Path $SourceFolder "$year\$month"
 
