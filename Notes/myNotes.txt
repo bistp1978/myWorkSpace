@@ -9,7 +9,14 @@ minikube service webapp-service
  [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("username"))
  [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("password"))
  minikube service mongoexpress-service
+ https://github.com/bistp1978/myWorkSpace
  
+C:\Windows\System32\drivers\etc
+
+
+https://kubernetes.io/search/?q=ingress
+https://www.youtube.com/watch?v=X48VuDVv0do 
+https://hub.docker.com/_/mongo/tags 
 
  start ingress addon -  minikube addons enable ingress
  minikube addons enable dashboard
