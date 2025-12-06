@@ -12,10 +12,15 @@ docker exec -it 1d0efe6e7f0f /bin/bash
  docker run -d --net my-network -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name my-mongo -p27017:27017 mongo
  docker run -d --net my-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=password  -e ME_CONFIG_MONGODB_SERVER=my-mongo --name my-mongo-express  -p 8081:8081  mongo-express
 
-
+docker login
 docker stop my-app
 docker rm my-app   
 docker rmi my-nodeapp   
 docker build -t my-nodeapp .
 docker run -d  -p 3000:3000 --name my-app --net my-network  my-nodeapp
 docker logs my-app -f        
+
+
+docker tag my-nodeapp:latest prashantbist/my-nodeapp:1.0
+docker push prashantbist/my-nodeapp:1.0  
+docker-compose -f .\my-nodeapp.yaml up --remove-orphans
