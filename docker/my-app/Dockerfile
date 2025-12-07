@@ -6,3 +6,4 @@ RUN npm install
 RUN npm install dotenv
 ENV MONGO_URL="mongodb://admin:password@mongodb:27017/"
 CMD ["node", "myServer.js"]
+EXPOSE 3000
