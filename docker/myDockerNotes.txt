@@ -24,3 +24,6 @@ docker logs my-app -f
 docker tag my-nodeapp:latest prashantbist/my-nodeapp:1.0
 docker push prashantbist/my-nodeapp:1.0  
 docker-compose -f .\my-nodeapp.yaml up --remove-orphans
+
+
+wls -d ubuntu
