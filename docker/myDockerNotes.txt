@@ -27,3 +27,6 @@ docker-compose -f .\my-nodeapp.yaml up --remove-orphans
 
 
 wls -d ubuntu
+
+
+docker commit -c 'CMD ["redis-server"]' 8792f0629aaa 

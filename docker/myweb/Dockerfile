@@ -1,0 +1,7 @@
+FROM node:25-alpine3.22
+WORKDIR /usr/app
+COPY   ./package.json ./
+RUN npm install 
+COPY   ./ ./
+
+CMD ["npm", "start" ]

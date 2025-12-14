@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   my-nodeapp:
     image: prashantbist/my-nodeapp:1.8
