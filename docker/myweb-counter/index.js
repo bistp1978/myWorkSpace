@@ -13,8 +13,11 @@ client.on('error', (err) => {
 client.connect();
 client.set('visits', 0);
 
+console.log('Starting My Web Counter App');
+
 
 app.get('/', async (req, res) => {
+    //process.exit(0)
     console.log('Received GET request for /');
 
     let visits = await client.get('visits');
