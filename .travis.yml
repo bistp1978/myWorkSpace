@@ -6,6 +6,8 @@ before_install:
   - docker build -t prashantbist/frontend-dev -f Dockerfile.dev . 
 script:
   - docker run -e CI=true prashantbist/frontend-dev npm run test -- --coverage
+install: 
+  - docker build -t prashantbist/frontend .
 
 deploy:
   provider: elasticbeanstalk
