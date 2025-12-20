@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./worker:/app  
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5000:5000"
+    volumes:
+      - /app/node_modules
+      - ./server:/app  
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PGHOST: postgres
+      PGDATABASE: postgres
+      PGPORT: 5432
+      PGUSER: docker
+      PGPASSWORD: docker
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3050:80"
