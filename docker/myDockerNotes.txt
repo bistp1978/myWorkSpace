@@ -29,4 +29,10 @@ docker-compose -f .\my-nodeapp.yaml up --remove-orphans
 wls -d ubuntu
 
 
+creatig an image from a runnning container`
 docker commit -c 'CMD ["redis-server"]' 8792f0629aaa 
+
+
+
+multi node setup - running docker within docker
+ docker run --privileged -d --name dind  docker
